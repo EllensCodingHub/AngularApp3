@@ -1,0 +1,82 @@
+
+<div class="container">
+
+  <div class="toolbar">
+    <h2>Add Book</h2>
+  </div>
+
+  <form #f="ngForm" (ngSubmit)="addBook(f)">
+    <!-- Author Name -->
+     <div class="form-group">
+      <label>Author</label>
+      <input type="text" name="authorName" class="form-control" [(ngModel)]="book.authorName"
+      required maxlength="50" #authorName="ngModel" />
+     </div>
+    <!-- Title -->
+     <div class="form-group">
+      <label>Title</label>
+      <input type="text" name="bookTitle" class="form-control" [(ngModel)]="book.bookTitle"
+      required maxlength="50" #bookTitle="ngModel" />
+     </div>
+    <!-- Hook -->
+     <div class="form-group">
+      <label>Hook</label>
+      <input type="text" name="storyHook" class="form-control" [(ngModel)]="book.storyHook"
+      maxlength="50" #storyHook="ngModel" />
+     </div>
+    <!-- Genre -->
+     <div class="form-group">
+      <label>Genre</label>
+      <input type="text" name="genre" class="form-control" [(ngModel)]="book.genre"
+      maxlength="50" #genre="ngModel" />
+     </div>
+    <!-- Publication Date -->
+     <div class="form-group">
+      <label>Publication Date</label>
+      <input type="date" name="pubDate" class="form-control" [(ngModel)]="book.pubDate"
+      maxlength="50" #pubDate="ngModel" />
+     </div>
+    <!-- Publisher -->
+     <div class="form-group">
+      <label>Publisher</label>
+      <input type="text" name="publisher" class="form-control" [(ngModel)]="book.publisher"
+      maxlength="50" #publisher="ngModel" />
+     </div>
+    <!-- Recommended By -->
+     <div class="form-group">
+      <label>Recommended By</label>
+      <input type="text" name="recBy" class="form-control" [(ngModel)]="book.recBy"
+      maxlength="50" #recBy="ngModel" />
+     </div>
+    <!-- My Rating -->
+    <div class="form-group rating-group" role="group" aria-labelledby="rating-label">
+      <span id="rating-label">My Rating</span>
+
+      @for (rating of [1, 2, 3, 4, 5]; track rating) {
+        <label>
+          <input type="radio" name="starRating"
+               [value]="rating" [(ngModel)]="book.starRating"
+               [attr.aria-label]="rating + ' out of 5 stars'">
+        <span aria-hidden="true">{{ (book.starRating ?? 0) >= rating ? '★' : '☆' }}</span>
+        </label>
+      }
+      <label>
+        <input type="radio" name="starRating"
+              [value]="null" [(ngModel)]="book.starRating">
+        Not Read
+      </label>
+    </div>
+    <!-- Upload Image -->
+     <div class="form-group">
+      <label>Upload Image</label>
+      <input type="file" name="imageName" class="form-control" (change)="onFileSelected($event)" />
+     </div>
+    <!-- Buttons -->
+     <div class="form-group">
+      <button type="submit" class="btn btn-primary" [disabled]="f.invalid">Add Book</button>
+      <button class="btn btn-secondary" routerLink="/list">Cancel</button>
+     </div>
+
+  </form>
+
+</div>

@@ -1,0 +1,65 @@
+
+<div class="container">
+  <div class="toolbar">
+    <h2>Update Book</h2>
+  </div>
+
+  <form #f="ngForm" (ngSubmit)="updateBook(f)">
+
+    <!-- Author Name -->
+     <div class="form-group">
+      <label>Author</label>
+      <input type="text" name="authorName" class="form-control" [(ngModel)]="book.authorName" 
+      required maxlength="50" />
+     </div>
+    <!-- Title -->
+     <div class="form-group">
+      <label>Title</label>
+      <input type="text" name="bookTitle" class="form-control" [(ngModel)]="book.bookTitle"
+      required maxlength="50" />
+     </div>
+    <!-- Hook -->
+     <div class="form-group">
+      <label>Hook</label>
+      <input type="text" name="storyHook" class="form-control" [(ngModel)]="book.storyHook"
+      maxlength="50" />
+     </div>
+    <!-- Genre -->
+     <div class="form-group">
+      <label>Genre</label>
+      <input type="text" name="genre" class="form-control" [(ngModel)]="book.genre"
+      maxlength="50" />
+     </div>
+    <!-- Publication Date -->
+     <div class="form-group">
+      <label>Publication Date</label>
+      <input type="date" name="pubDate" class="form-control" [(ngModel)]="book.pubDate"
+      [max]="maxDate" />
+     </div>
+    <!-- Publisher -->
+     <div class="form-group">
+      <label>Publisher</label>
+      <input type="text" name="publisher" class="form-control" [(ngModel)]="book.publisher"
+      maxlength="50" />
+     </div>
+    <!-- Recommended By -->
+     <div class="form-group">
+      <label>Recommended By</label>
+      <input type="text" name="recBy" class="form-control" [(ngModel)]="book.recBy"
+      maxlength="50" />
+     </div>
+    <!-- My Rating -->
+     <div class="form-group">
+      <label>My Rating</label>
+      <input type="text" name="starRating" class="form-control" [(ngModel)]="book.starRating"
+      maxlength="50" />
+     </div>
+    <!-- Buttons -->
+     <div class="form-group">
+      <button type="submit" class="btn btn-primary" [disabled]="f.invalid">Update Book</button>
+      <button class="btn btn-secondary" routerLink="/books">Cancel</button>
+    </div>
+
+  </form>
+
+</div>

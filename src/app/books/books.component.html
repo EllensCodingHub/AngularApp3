@@ -1,0 +1,66 @@
+
+<div id="booklist" class="books-container">
+  <div class="toolbar">
+    <h2>My Books</h2>
+  </div>
+
+  @for (book of books; track book.bookID) {
+    <div class="book-card row align-items-center">
+      <div class="col-2 book-field">{{ book.authorName }}</div>
+      <div class="col-2 book-field">{{ book.bookTitle }}</div>
+      <div class="col-2 book-field">{{ book.storyHook }}</div>
+      <div class="col-2 book-field">{{ book.genre }}</div>
+      <div class="col-2 book-field">{{ book.pubDate }}</div>
+      <div class="col-2 book-field">{{ book.publisher }}</div>
+      <div class="col-2 book-field">{{ book.recBy }}</div>
+      <div class="col-2 book-field">{{ book.starRating }}</div>
+      <div class="col-2">
+        <img class="book-image" src="http://localhost/Angular_App3_API/my_booksAPI_2026/list.php" alt="{{book.imageName}}">
+      </div>
+      <div class="col-2 d-flex gap-2">
+        <button class="btn btn-success btn-sm" [routerLink]="['/update', book.bookID]">
+          Update
+        </button>
+        <button class="btn btn-danger btn-sm" (click)="deleteBook(book.bookID ?? 0)">
+          Delete
+        </button>
+      </div>
+    </div>
+  }
+
+</div>
+
+<div id="links" class="mt-4 text-center">
+  <button class="btn btn-sm btn-primary me-2 " routerLink="/add">Add Book</button>
+</div>
+
+<!-- @for (book of (books$ | async) ?? []; track book) { -->
+  <!-- <table>
+    <thead>
+      <tr>
+        <th scope="col">Author</th>
+        <th scope="col">Title</th>
+        <th scope="col">Hook</th>
+        <th scope="col">Genre</th>
+        <th scope="col">Publish Date</th>
+        <th scope="col">Publisher</th>
+        <th scope="col">Recommended by:</th>
+        <th scope="col">My Rating</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (book of (books$ | async) ?? []; track book) {
+        <tr>
+          <td>{{ book.authorName }}</td>
+          <td>{{ book.bookTitle }}</td>
+          <td>{{ book.storyHook }}</td>
+          <td>{{ book.genre }}</td>
+          <td>{{ book.pubDate }}</td>
+          <td>{{ book.publisher }}</td>
+          <td>{{ book.recBy ?? '-'}}</td>
+          <td>{{ book.starRating ?? 'Not Read' }}</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+} -->
