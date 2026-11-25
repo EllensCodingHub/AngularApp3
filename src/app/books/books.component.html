@@ -2,6 +2,7 @@
 <div id="booklist" class="books-container">
   <div class="toolbar">
     <h2>My Books</h2>
+    <button (click)="authService.logout()" class="btn btn-sm btn-danger">Logout</button>
   </div>
 
   @for (book of books; track book.bookID) {
@@ -42,6 +43,11 @@
 <!--- temporary links for testing -->
 <div id="links" class="mt-4 text-center">
   <button class="btn btn-sm btn-primary me-2 " routerLink="/login">Login</button>
+</div>
+
+<!--- temporary links for testing -->
+<div id="links" class="mt-4 text-center">
+  <button class="btn btn-sm btn-primary me-2 " routerLink="/logout">Logout</button>
 </div>
 
 <!-- @for (book of (books$ | async) ?? []; track book) { -->

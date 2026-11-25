@@ -1,10 +1,11 @@
 import { Component, inject, OnInit } from '@angular/core';
+import { Book } from '../book';
 import { AsyncPipe } from '@angular/common';
 import { BookService } from '../book.service';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { RouterLink } from '@angular/router';
-import { Book } from '../book';
+import { Auth } from '../services/auth';
 
 @Component({
   selector: 'app-books',
@@ -26,7 +27,7 @@ export class BooksComponent implements OnInit {
   error = '';
   success = '';
 
-  constructor(private bookService: BookService, private http: HttpClient) {
+  constructor(private bookService: BookService, private http: HttpClient, public authService: Auth) {
     // no other statements required
   }
   ngOnInit(): void {
