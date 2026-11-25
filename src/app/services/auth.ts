@@ -9,10 +9,35 @@ import { Router } from "@angular/router";
 export class Auth {
   baseURL = 'http://localhost/Angular_App3_API/my_booksAPI_2026';
 
+  isAuthenticated = false;
+
   constructor(private http: HttpClient, private router: Router) {
     // no statements required
   }
   register(user: any) {
     return this.http.post<any>(`${this.baseURL}/register.php`, user);
+  }
+  login(user: any) {
+    return this.http.post<any>(`${this.baseURL}/login.php`, user);
+  }
+  logout() {
+    return this.http.get<any>(`${this.baseURL}/logout.php`).subscribe(() => {
+      // more code to come
+      this.isAuthenticated = false;
+      localStorage.removeItem('auth');
+      this.router.navigate(['/login']);
+    });
+  }
+  checkAuth() {
+    return this.http.get<any>(`${this.baseURL}checkAuth.php`);
+  }
+
+  setAuth(auth: boolean) {
+    this.isAuthenticated = auth;
+    localStorage.setItem('auth', auth ? 'true' : 'false');
+  }
+
+  getAuth(auth: boolean) {
+    return localStorage.getItem('auth') == 'true';
   }
 }
