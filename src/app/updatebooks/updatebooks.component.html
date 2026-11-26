@@ -48,16 +48,30 @@
       <input type="text" name="recBy" class="form-control" [(ngModel)]="book.recBy"
       maxlength="50" />
      </div>
+
     <!-- My Rating -->
-     <div class="form-group">
-      <label>My Rating</label>
-      <input type="text" name="starRating" class="form-control" [(ngModel)]="book.starRating"
-      maxlength="50" />
-     </div>
+    <div class="form-group rating-group" role="group" aria-labelledby="rating-label">
+      <span id="rating-label">My Rating</span>
+
+      @for (rating of [1, 2, 3, 4, 5]; track rating) {
+        <label>
+          <input type="radio" name="starRating"
+               [value]="rating" [(ngModel)]="book.starRating"
+               [attr.aria-label]="rating + ' out of 5 stars'">
+        <span aria-hidden="true">{{ (book.starRating ?? 0) >= rating ? '★' : '☆' }}</span>
+        </label>
+      }
+      <label>
+        <input type="radio" name="starRating"
+              [value]="null" [(ngModel)]="book.starRating">
+        Not Read
+      </label>
+    </div> 
+     
     <!-- Buttons -->
      <div class="form-group">
       <button type="submit" class="btn btn-primary" [disabled]="f.invalid">Update Book</button>
-      <button class="btn btn-secondary" routerLink="/books">Cancel</button>
+      <button class="btn btn-secondary" routerLink="/list">Cancel</button>
     </div>
 
   </form>

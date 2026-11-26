@@ -29,7 +29,7 @@ export class Auth {
     });
   }
   checkAuth() {
-    return this.http.get<any>(`${this.baseURL}checkAuth.php`);
+    return this.http.get<any>(`${this.baseURL}/checkAuth.php`);
   }
 
   setAuth(auth: boolean) {
@@ -37,7 +37,7 @@ export class Auth {
     localStorage.setItem('auth', auth ? 'true' : 'false');
   }
 
-  getAuth(auth: boolean) {
+  getAuth() {
     return localStorage.getItem('auth') == 'true';
   }
 }
