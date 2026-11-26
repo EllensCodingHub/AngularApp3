@@ -22,7 +22,7 @@ export class BooksComponent implements OnInit {
 
   public books: Book[] = [];
 
-  book: Book = { authorName:'', bookTitle:'', storyHook:'', genre:'', pubDate:'', publisher:'', recBy:null, starRating:null };
+  book: Book = { authorName:'', bookTitle:'', storyHook:'', genre:'', pubDate:'', publisher:'', recBy:'', starRating:null };
 
   error = '';
   success = '';

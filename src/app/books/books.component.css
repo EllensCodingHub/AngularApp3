@@ -7,14 +7,12 @@
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
 .books-container h2 {
   text-align: center;
   font-size: 28px;
   margin-bottom: 25px;
   color: #333;
 }
-
 /* Each book row styled like a card */
 .book-card {
   background: #f9f9f9;
@@ -24,16 +22,13 @@
   box-shadow: 0 1px 4px rgba(0,0,0,0.05);
   transition: background 0.3s ease;
 }
-
 .book-card:hover {
   background: #f1f1f1;
 }
-
 .book-field {
   font-size: 15px;
   color: #444;
 }
-
 .book-image {
   width: 80px;
   height: 80px;
@@ -41,17 +36,14 @@
   border-radius: 20%;
   border: 2px solid #ccc;
 }
-
 /* Adjust spacing between action buttons */
 .book-card .btn {
   min-width: 70px;
 }
-
 /* Link button spacing */
 #links button {
   margin: 0 8px;
 }
-
 .toolbar {
   display: flex;
   justify-content: space-between;
@@ -60,4 +52,10 @@
   background-color: #f2f2f2;
   border-bottom: 1px solid #ccc;
   margin-bottom: 20px;
+}
+.books-container .book-list-header {
+  font-weight: 600;
+}
+.books-container .book-card.book-list-header > :last-child {
+  grid-column: auto;
 }

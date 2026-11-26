@@ -16,13 +16,13 @@
      <div class="form-group">
       <label>Title</label>
       <input type="text" name="bookTitle" class="form-control" [(ngModel)]="book.bookTitle"
-      required maxlength="50" />
+      required maxlength="255" />
      </div>
     <!-- Hook -->
      <div class="form-group">
       <label>Hook</label>
       <input type="text" name="storyHook" class="form-control" [(ngModel)]="book.storyHook"
-      maxlength="50" />
+      maxlength="500" />
      </div>
     <!-- Genre -->
      <div class="form-group">
@@ -46,9 +46,8 @@
      <div class="form-group">
       <label>Recommended By</label>
       <input type="text" name="recBy" class="form-control" [(ngModel)]="book.recBy"
-      maxlength="50" />
+      maxlength="255" />
      </div>
-
     <!-- My Rating -->
     <div class="form-group rating-group" role="group" aria-labelledby="rating-label">
       <span id="rating-label">My Rating</span>
